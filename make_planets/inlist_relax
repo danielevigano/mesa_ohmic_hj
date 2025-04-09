@@ -1,0 +1,85 @@
+!inlist_relax
+
+&star_job
+      
+      show_log_description_at_start = .false. 
+
+      load_saved_model = .true.
+      load_model_filename = <<loadfile>>
+
+      save_model_when_terminate = .true.
+      save_model_filename = <<ritefile>>
+      required_termination_code_string = 'max_age'
+
+      change_initial_net = .true.      
+      new_net_name = 'basic.net'
+
+      relax_initial_irradiation = .true.
+      relax_irradiation_min_steps = 200
+      relax_irradiation_max_yrs_dt = 1d-1
+
+      relax_to_this_irrad_flux = <<flux_dayside>> ! in erg/cm^2/s
+      irrad_col_depth = <<irrad_col>> ! In cm^2/g
+
+      relax_to_this_tau_factor = 2
+      dlogtau_factor = 0.01d0
+      relax_initial_tau_factor = .false.
+      
+      ! reset age and model number
+      set_initial_model_number = .true.
+      initial_model_number = 0
+      set_initial_age = .true.
+      initial_age = 0
+
+      !pgstar_flag = .true.
+      
+/ ! end of star_job namelist
+
+
+&eos
+
+/ ! end of eos namelist
+
+
+&kap
+    Zbase = 0.02d0
+
+    kap_file_prefix = 'gs98'
+    kap_lowT_prefix = 'lowT_Freedman11'
+    use_Type2_opacities = .false.
+
+/ ! end of kap namelist
+
+&controls
+
+    ! limit max_model_number as part of test_suite
+    max_model_number = 400
+    use_gold2_tolerances = .true.
+
+    initial_mass = 0.001
+    initial_z = 0.02d0
+
+    mixing_length_alpha = 1.89d0
+    MLT_option = 'Henyey'
+      
+    max_age = 1d4
+    max_years_for_timestep = 1d9
+      
+    T_mix_limit = 0
+	
+	! Mass and time resolutions
+    mesh_delta_coeff = 2.5000e-01 ! space resolution 
+    time_delta_coeff = 2.5000e-01 ! time resolution 
+      
+    calculate_Brunt_N2 = .false.
+      
+    photo_interval = 1000
+    profile_interval = 1000
+    history_interval = 1000
+    terminal_interval = 1000
+    write_header_frequency = 1000
+
+/ ! end of controls namelist
+
+&pgstar
+/

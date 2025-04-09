@@ -1,0 +1,28 @@
+<<v_avg>>
+<<lmin>>
+<<lmax>>
+<<p_atm>>
+<<p_dyn>>
+<<scaling_b>>
+<<fohm>>
+<<fdip>>
+<<age_ohm_on>>
+<<age_ohm_full>>
+<<f_avg>>
+<<w_age_max>>
+<<pcmin>>
+<<s0>>
+
+# v_avg: average velocity in the wind layer [cm s^-1]. Suggested: 1e3-1e4 cm/s
+# lmin, lmax: minimum and maximum multipoles of the (vxB) term
+# p_atm: Pressure considered for the wind layers [bar]. Suggested: 10-100 bar
+# p_dyn: Pressure considered to evaluate the dynamo quantities [bar]. Suggested: 1e6 bar (the metallic H high conductivity region)
+# scaling_b: Flag for scaling law: Reiners et al. 2009 'R', Christensen et al. 2009 'C'
+# fohm:  Fraction of Ohmically dissipated power over the total, for magnetic field scaling laws. Suggested: 1
+# fdip:  Dipolarity at the dynamo surface, used to infer the surface field. Suggested: 0.5
+# t_ohm_on Age at which the Ohmic heat is turned on linearly (avoid early times) [yr]. Suggested: 1e6 yr 
+# t_ohm_full: Age at which the Ohmic heat reaches its full value [yr]. Suggested: 1e7 yr
+# f_avg: Fraction of age over which taking the time-average of the Ohmic terms, for stability purposes (0 for no averages in time). Suggested: 0.1
+# w_age_max: Maximum weight of the current value of Ohmic heating to give in the averages (1 for no averages in time). Suggested: 0.5.
+# pcmin: pressure at which the Ohmic heating is manually damped outward [bar]. Set values <= 0 for not having it. Suggested 0 or 1 bar.
+# s0:    width in log(p[bar]) of the exponential damping of Ohmic heating at layers p<p_min. Suggested: 0.25
